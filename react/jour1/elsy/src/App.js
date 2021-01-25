@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+import Steps from "./components/Steps";
 
 
 export class App extends React.Component {
@@ -13,6 +14,7 @@ export class App extends React.Component {
     return (
       <div className="container-fluid" >
         <div className="row">
+          <Steps />
           <p>Heart : {this.heartMin}</p>
           <p>Temperature : {this.tempMin}</p>
           <p>Steps : {this.stepsMin}</p>
