@@ -1,6 +1,7 @@
 import React from "react";
 import './App.css';
 import Steps from "./components/Steps";
+import './styles/global.css';
 
 
 export class App extends React.Component {

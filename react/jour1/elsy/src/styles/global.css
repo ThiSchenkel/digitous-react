@@ -1,0 +1,13 @@
+.box:nth-child(2n){
+background-color : #cccccc
+}
+
+.box:nth-child(2n+1){
+background-color: #aaaaaa;
+}
+
+.box{
+    height: 190px;
+    padding: 8px;
+    text-align: center;
+}
