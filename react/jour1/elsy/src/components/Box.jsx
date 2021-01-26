@@ -4,18 +4,12 @@ class Box extends React.Component {
         return (
 
             <div className="box" >
-                <span className="material-icons" style={{ fontSize: 100, color: "black" }}>directions_walk {this.props.icon}</span>
+                <span className="material-icons" style={{ fontSize: 100, color: this.props.color }}>{this.props.icon}</span>
                 <div className="col-sm-3" />
                 <div className="col-6" />
+                <p>{this.props.value && this.props.unit}</p>
             </div>
         )
-    }
-    constructor(props) {
-        super(props);
-        this.state = {
-            color: this.props.color,
-            p: this.props.value && this.props.unit
-        }
     }
 }
 export default Box;

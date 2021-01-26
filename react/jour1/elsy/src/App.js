@@ -18,11 +18,11 @@ export class App extends React.Component {
           {/* boite Water */}
           <Box icon={"local_drink"} color={"#3A85FF"} value={"1.5"} unit={"L"} />
           {/* boite Steps */}
-          <Box icon={"directions_walk", "favorite", "wb-sunny"} color={"black", "red", "yellow"} value={"3000", "120", "-10"} unit={"steps", "bpm", "°C"} />
+          <Box icon={"directions_walk"} color={"black"} value={"3000"} unit={"steps"} />
           {/* boite Heart */}
-          <Box icon={"directions_walk", "favorite", "wb-sunny"} color={"black", "red", "yellow"} value={"3000", "120", "-10"} unit={"steps", "bpm", "°C"} />
+          <Box icon={"favorite"} color={"red"} value={"120"} unit={"bpm"} />
           {/* boite Temperature */}
-          <Box icon={"directions_walk", "favorite", "wb-sunny"} color={"black", "red", "yellow"} value={"3000", "120", "-10"} unit={"steps", "bpm", "°C"} />
+          <Box icon={"wb-sunny"} color={"yellow"} value={"-10"} unit={"°C"} />
           <p>Heart : {this.heartMin}</p>
           <p>Temperature : {this.tempMin}</p>
           <p>Steps : {this.stepsMin}</p>
