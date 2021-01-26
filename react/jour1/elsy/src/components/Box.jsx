@@ -3,10 +3,8 @@ class Box extends React.Component {
     render() {
         return (
 
-            <div className="box" >
+            <div className="box col-sm-3 col-6 " >
                 <span className="material-icons" style={{ fontSize: 100, color: this.props.color }}>{this.props.icon}</span>
-                <div className="col-sm-3" />
-                <div className="col-6" />
                 <p>{this.props.value} {this.props.unit}</p>
             </div>
         )
