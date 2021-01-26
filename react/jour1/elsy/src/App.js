@@ -22,10 +22,10 @@ export class App extends React.Component {
           {/* boite Heart */}
           <Box icon={"favorite"} color={"red"} value={"120"} unit={"bpm"} />
           {/* boite Temperature */}
-          <Box icon={"wb-sunny"} color={"yellow"} value={"-10"} unit={"°C"} />
-          <p>Heart : {this.heartMin}</p>
+          <Box icon={"wb_sunny"} color={"yellow"} value={"-10"} unit={"°C"} />
+          {/* <p>Heart : {this.heartMin}</p>
           <p>Temperature : {this.tempMin}</p>
-          <p>Steps : {this.stepsMin}</p>
+          <p>Steps : {this.stepsMin}</p> */}
         </div>
       </div>
     );
