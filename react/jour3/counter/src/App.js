@@ -10,20 +10,20 @@ class App extends React.Component {
   }
 
   decrementCount = () => {
-    this.setState({ count: this.state.count - 1 })
+    this.state({ count: this.state.count - 1 })
   }
   incrementCount = () => {
-    this.setState({ count: this.state.count + 1 })
+    this.state({ count: this.state.count + 1 })
   }
 
   render() {
     return (
       <div>
-        <hi className="Counter">Counter</hi>
+        <h1 className="Counter" style={{ textAlign: "center" }}>Counter</h1>
         <h2 className="valCount">{this.state.count}</h2>
-        <button style={{ backGround: "green" }} onClick={() => { this.decrementCount }} />
-        <button style={{ backGround: "red" }} onClick={() => { this.incrementCount }} />
-      </div>
+        <button style={{ color: "green" }} onClick={() => { this.decrementCount() }} />
+        <button style={{ color: "red" }} onClick={() => { this.incrementCount() }} />
+      </div >
     );
   }
 }
