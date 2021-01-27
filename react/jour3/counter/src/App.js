@@ -1,5 +1,7 @@
 import React from "react";
 import "./App.css";
+import Counter from "./components/Counter"
+
 
 class App extends React.Component {
   constructor(props) {
@@ -16,22 +18,26 @@ class App extends React.Component {
     this.setState({ count: this.state.count + 1 })
   }
 
+  addFunction = () => {
+    this.setState(this.state.incrementCount());
+    this.addFunction = this.addFunction.bind(this);
+  }
+
+  removeFunction = () => {
+    this.setState(this.state.removeFunction());
+    this.removeFunction = this.removeFunction.bind(this);
+  }
+
   render() {
     return (
 
       <div className="container">
-        <h1 className="Counter" style={{ textAlign: "center" }}>Counter</h1>
+        <h1 className="Counter" style={{ textAlign: "center", margin: "100px" }}>Counter</h1>
         <div className="row" style={{ textAlign: "center" }}>
-          <div className=" col" >
-            <button style={{ color: "green", borderRadius: "50%", fontSize: "30px", outline: "none", width: "50px", height: "50px" }} onClick={() => { this.decrementCount() }}> - </button>
-            <div className="col" >
-              <h2>{this.state.count}</h2></div>
-            <div className=" col" >
-              <button style={{ color: "red", borderRadius: "50%", fontSize: "30px", outline: "none", width: "50px", height: "50px" }} onClick={() => { this.incrementCount() }} > + </button>
-            </div>
-          </div>
+          <Counter addFunction removeFunction />
         </div>
       </div>
+
 
     );
   }
