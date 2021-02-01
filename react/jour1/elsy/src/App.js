@@ -11,9 +11,8 @@ export class App extends React.Component {
       water: 0,
       heart: 120,
       temperature: -10,
-      steps: 3000
+      steps: 3000,
     };
-    //this.onHeartChange = this.onHeartChange.bind(this);
   }
   tempMin = -20;
   tempMax = 40;
@@ -23,9 +22,31 @@ export class App extends React.Component {
   stepsMax = 50000;
 
   onHeartChange = (value) => {
-    console.log("value", value);
-    this.setState({ heart: value })
+    this.setState({ heart: value.target.value })
   }
+
+  onStepsChange = (value) => {
+    this.setState({ steps: value.target.value })
+  }
+
+  onTemperatureChange = (value) => {
+    this.setState({ temperature: value.target.value })
+  }
+
+  // calculateWater = (value) => {
+  //   const value = 1.5;
+  //   if (temperature > 20) {
+  //     temperature = temperature + ((temperature / 20) * 0.02)
+  //   }
+  //   else if (heart > 120) {
+  //     heart = heart + ((heart / 120) * 0.0008)
+  //   }
+  //   else if (steps > 10000) {
+  //     steps = steps + ((steps / 10000) * 0.00002)
+  //   }
+
+  //   this.setState({ water: value.target.value })
+  // }
 
 
   render() {
@@ -35,14 +56,11 @@ export class App extends React.Component {
           {/* boite Water */}
           <Box icon={"local_drink"} color={"#3A85FF"} value={"1.5"} unit={"L"} />
           {/* boite Steps */}
-          <Box icon={"directions_walk"} color={"black"} value={3000} unit={"steps"} />
+          <Box icon={"directions_walk"} color={"black"} value={this.state.steps} unit={"steps"} onChange={this.onStepsChange} />
           {/* boite Heart */}
-          <Box icon={"favorite"} color={"red"} value={120} unit={"bpm"} onChange={this.onHeartChange} />
+          <Box icon={"favorite"} color={"red"} value={this.state.heart} unit={"bpm"} onChange={this.onHeartChange} />
           {/* boite Temperature */}
-          <Box icon={"wb_sunny"} color={"yellow"} value={-10} unit={"°C"} />
-          {/* <p>Heart : {this.heartMin}</p>
-          <p>Temperature : {this.tempMin}</p>
-          <p>Steps : {this.stepsMin}</p> */}
+          <Box icon={"wb_sunny"} color={"yellow"} value={this.state.temperature} unit={"°C"} onChange={this.onTemperatureChange} />
         </div>
       </div>
     );

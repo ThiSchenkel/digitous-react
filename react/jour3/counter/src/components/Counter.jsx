@@ -4,8 +4,6 @@ class Counter extends React.Component {
     render() {
         const { count, addFunction, removeFunction } = this.props;
         return (
-
-
             <div>
                 <div className="row" >
                     <div className="col-md-3" >
@@ -19,7 +17,6 @@ class Counter extends React.Component {
                     </div>
                 </div>
             </div>
-
         )
     }
 }
