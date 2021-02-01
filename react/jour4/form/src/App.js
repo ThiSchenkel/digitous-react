@@ -1,3 +1,6 @@
+
+
+
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
@@ -17,33 +20,37 @@ class App extends React.Component {
   handleChangeMail = (event) => {
     this.setState({
       mail: event.target.value
-    });
-    console.log(event)
+    })
   }
 
   handleChangeMp = (event) => {
     this.setState({
       mp: event.target.value
     });
-    console.log(event)
+  }
+
+  handleChangeCheckBox = (event) => {
+    this.setState({
+      checked: event.target.checked
+    })
   }
 
   render() {
     return (
       <div className="container">
-        <form >
+        <form>
           <h1>Login</h1>
 
           <p>Email Adress</p>
-          <input type="text" mail={this.state.mail} value={this.state.mail} onChange={this.handleChangeMail} />
+          <input type="mail" mail={this.state.mail} value={this.state.mail} onChange={this.handleChangeMail} required title="Veuillez saisir une adresse mail valide" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}" />
 
           <p>Passeword</p>
-          <input type="text" mp={this.state.mp} value={this.state.mp} onChange={this.handleChangeMp} />
+          <input type="passeword" mp={this.state.mp} value={this.state.mp} onChange={this.handleChangeMp} required title="Veuillez saisir un mot de passe 8 caractères" pattern="[0-9a-fA-F]{4,8}" minLength="8" maxLength="8" />
 
           <p>Remember Me</p>
-          <input type="checkbox" checked={this.state.checked} value={this.state.checked} onChange={this.handleChangeMail} />
+          <input type="checkbox" checked={this.state.checked} value={this.state.checked} onChange={this.handleChangeCheckBox} required />
 
-          <input type="submit" value="Submit" />
+          <button className="btn btn-primary" >Submit</button>
         </form>
       </div>
     );
