@@ -8,15 +8,25 @@ class App extends React.Component {
     super(props);
     this.state = {
       mail: "",
-      passeword: "",
+      mp: "",
       value: "",
+      checked: ""
     }
   }
 
-  handleChange = (event) => {
-    console.log(event);
+  handleChangeMail = (event) => {
+    this.setState({
+      mail: event.target.value
+    });
+    console.log(event)
   }
 
+  handleChangeMp = (event) => {
+    this.setState({
+      mp: event.target.value
+    });
+    console.log(event)
+  }
 
   render() {
     return (
@@ -25,12 +35,14 @@ class App extends React.Component {
           <h1>Login</h1>
 
           <p>Email Adress</p>
-          <input type="text" mail={this.state.mail} onChange={this.handleChange} />
+          <input type="text" mail={this.state.mail} value={this.state.mail} onChange={this.handleChangeMail} />
 
           <p>Passeword</p>
-          <input type="text" passeword={this.state.passeword} onChange={this.handleChange} />
+          <input type="text" mp={this.state.mp} value={this.state.mp} onChange={this.handleChangeMp} />
 
           <p>Remember Me</p>
+          <input type="checkbox" checked={this.state.checked} value={this.state.checked} onChange={this.handleChangeMail} />
+
           <input type="submit" value="Submit" />
         </form>
       </div>
