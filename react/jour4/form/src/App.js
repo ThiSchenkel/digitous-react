@@ -1,58 +1,93 @@
-
-
-
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      mailValid: false,
+      mpValid: false,
       mail: "",
       mp: "",
-      value: "",
-      checked: ""
+      submitClick: false,
     }
   }
 
   handleChangeMail = (event) => {
+    const newMail = event.target.value;
+    const reg = /^\S+@\S+\.\S+$/g;
+    const isMail = reg.test(newMail)
     this.setState({
-      mail: event.target.value
+      mail: newMail,
+      mailValid: isMail
     })
   }
 
   handleChangeMp = (event) => {
+    let newMp = false;
+    if (event.target.value.length > 6) {
+      newMp = true
+    } else {
+      newMp = false
+    }
     this.setState({
-      mp: event.target.value
-    });
-  }
-
-  handleChangeCheckBox = (event) => {
-    this.setState({
-      checked: event.target.checked
+      mp: event.target.value,
+      mpValid: newMp
     })
   }
 
+  handleChangeCheckBox = (event) => {
+    event.preventDefault();
+    this.setState({
+      submitClick: true
+    })
+  }
+
+
   render() {
+    if (this.state.submitClick === true) {
+      return (<div className="jumbotron display-4 text-center">Form Submitted</div>)
+    }
     return (
-      <div className="container">
-        <form>
-          <h1>Login</h1>
+      <form className="form-group needs-validation container">
+        <h1>Login</h1>
 
-          <p>Email Adress</p>
-          <input type="mail" mail={this.state.mail} value={this.state.mail} onChange={this.handleChangeMail} required title="Veuillez saisir une adresse mail valide" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}" />
+        <div className="row">
+          <div className="col-8">
+            <label htmlFor="email">Email Adress</label>
+            <input
+              type="email"
+              name="email"
+              className={this.state.mailValid ? "form-control is-valid" : "form-control is-invalid"}
+              onChange={this.handleChangeMail}
+              required />
+          </div>
 
-          <p>Passeword</p>
-          <input type="passeword" mp={this.state.mp} value={this.state.mp} onChange={this.handleChangeMp} required title="Veuillez saisir un mot de passe 8 caractères" pattern="[0-9a-fA-F]{4,8}" minLength="8" maxLength="8" />
+          <div className="col-8">
+            <label >Passeword</label>
+            <input
+              type="passeword"
+              name="passeword"
+              className={this.state.mpValid ? "form-control is-valid" : "form-control is-invalid"}
+              onChange={this.handleChangeMp}
+              required />
+          </div>
 
-          <p>Remember Me</p>
-          <input type="checkbox" checked={this.state.checked} value={this.state.checked} onChange={this.handleChangeCheckBox} required />
+          <div className="col-8">
+            <input type="checkbox" name="remember" required />
+            <label >Remember Me</label>
+          </div>
 
-          <button className="btn btn-primary" >Submit</button>
-        </form>
-      </div>
+          <div className="col-8">
+            <input type="submit" disabled={!this.state.mailValid || !this.state.mpValid} value="Submit" className="btn btn-primary" onClick={this.handleChangeCheckBox} />
+          </div>
+        </div>
+      </form>
     );
   }
 }
