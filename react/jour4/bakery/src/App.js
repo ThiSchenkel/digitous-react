@@ -12,9 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       activeTabs: "Add",
-      items: [],
-      productName: "",
-      price: 1
+      items: []
     }
   }
 
@@ -46,37 +44,26 @@ class App extends React.Component {
     }
   }
 
-  updateProductName = (event) => {
-    const productName = this.state.productName
-    this.setState({ productName: event.target.value })
-    console.log(productName)
+  addItem = (name, price) => {
+    const items = this.state.items
+    const newObject = {
+      name: "",
+      price: ""
+    }
+    const inserItems = [...newObject]
+    this.setState({ items: inserItems })
+    console.log(items)
   }
 
-  updatePrice = (event) => {
-    const price = this.state.price
-    this.setState({ price: event.target.value })
-    console.log(price)
-  }
 
   render() {
     return (
       <div className="container text-center">
         <h1>Bakery</h1>
-        <Button isSelected={this.state.activeTabs === "add"} onClick={this.selectedAdd}>Add</Button>
+        <Button isSelected={this.state.activeTabs === "add"} onClick={this.selectedAdd} pushList={this.state.items}>Add</Button>
         <Button isSelected={this.state.activeTabs === "list"} onClick={this.selectedList}>List</Button>
         <Button isSelected={this.state.activeTabs === "pay"} onClick={this.selectedPay}>Pay</Button>
         {this.renderContent()}
-
-        <div className="row ">
-          <div className="col ">
-            <input type="text" value={this.state.productName} onChange={this.updateProductName} />
-            <input type="range" value={this.state.price} min="1" max="10" onChange={this.updatePrice} />
-            <Button onClick={this.selectedAdd}>Add</Button>
-          </div>
-
-        </div>
-
-
       </div>
     );
   }
