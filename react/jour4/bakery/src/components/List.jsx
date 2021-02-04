@@ -6,14 +6,18 @@ class List extends React.Component {
     render() {
         return (
             <div className="container">
-
                 <ul>
-                    {this.props.pushList.map(push => (<li>{this.props.items} {this.props.price}</li>))}
+                    {this.props.listItems.map(curr => {
+                        return (<li>{curr.name} - {curr.price}</li>)
+                    })}
                 </ul>
-
             </div>
         );
     }
 }
 
 export default List;
+
+
+
+

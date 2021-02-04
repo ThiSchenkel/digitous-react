@@ -14,13 +14,16 @@ class Add extends React.Component {
     }
 
     updateProductName = (event) => {
-        const productName = this.state.productName
         this.setState({ productName: event.target.value })
     }
 
     updatePrice = (event) => {
-        const price = this.state.price
         this.setState({ price: event.target.value })
+    }
+
+    click = () => {
+        console.log('click add')
+        this.props.addItem(this.state.productName, this.state.price)
     }
 
     render() {
@@ -28,9 +31,11 @@ class Add extends React.Component {
             <div className="container">
                 <div className="row ">
                     <div className="col ">
-                        <input type="text" value={this.state.productName} onChange={this.updateProductName} />
+                        <input type="text" className="col" onChange={this.updateProductName} />
                         <input type="range" value={this.state.price} min="1" max="10" onChange={this.updatePrice} />
-                        <Button onClick={this.props.pushList}>Add</Button>
+                        <span>{this.state.price}</span>
+                        <button type="button" className="btn btn-primary" onClick={this.click}>Add</button>
+                        {/* <Button onClick={this.props.pushList}>Add</Button> */}
                     </div>
                 </div>
             </div>
