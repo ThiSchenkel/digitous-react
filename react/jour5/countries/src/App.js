@@ -17,31 +17,30 @@ class App extends React.Component {
   componentDidMount = () => {
     fetch("https://restcountries.eu/rest/v2/name/france")
       .then(response => response.json())
-      .then((data) => {
+      .then(name => {
         this.setState({
-          name: data.name,
-          capital: data.capital,
-          flag: data.flag,
-          region: data.region
-        })
-      }
-      )
+          name: name.name
+        }); console.log(name[0].capital)
+      });
   }
 
 
+
   render() {
-    const { countries } = this.componentDidMount;
+    const { name, capital, flag, region } = this.state;
     return (
       <div className="container">
-        <div className="row text-center">
-          <h1>Country Selector</h1>
-          <ul>
-            {countries.map(country => <li key={country.objectID}></li>)}
-          </ul>
+
+        <h1>Country Selector</h1>
+        <div className="row ">
+          <div className="col col-6 card" style={{ width: "18rem" }}>
+            <img className="card-img-top" />
+            <div className="card-body">
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
-}
-
-export default App;
+} export default App;
