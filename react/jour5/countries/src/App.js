@@ -22,6 +22,7 @@ class App extends React.Component {
         this.setState({ capital: state[0].capital })
         this.setState({ region: state[0].region })
         this.setState({ population: state[0].population })
+        this.setState({ flag: state[0].flag })
       })
     // .then(response => response.blob())
     // .then(flag => {
@@ -33,27 +34,27 @@ class App extends React.Component {
     fetch("https://restcountries.eu/rest/v2/name/all")
       .then(response => response.json())
       .then(country => {
-        this.setState({ name: country[0].name })
-        this.setState({ capital: country[0].capital })
-        this.setState({ region: country[0].region })
-        this.setState({ population: country[0].population })
-      }); console.log(country)
+        country = country.map((country) => {
+          const { callingCodes, name, capital, region, population, flag } = country
+          console.log(callingCodes, name, capital, region, population, flag)
+        })
+      })
   }
 
 
   render() {
     return (
       <div className="container">
-        <h1>Country Selector</h1>
-        <div className="row">
+        <h1 className="text-center">Country Selector</h1>
+        <div className="row mx-auto">
           <Button onClick={this.getCountry}>France</Button>
           <Button onClick={this.getCountry}>Brazil</Button>
           <Button onClick={this.getCountry}>Croatia</Button>
         </div>
 
         <div className="row ">
-          <div className="col card" style={{ width: "18rem" }}>
-            <p className="card-text">Flag : {this.state.flag}</p>
+          <div className="col-6 mx-auto card" style={{ width: "18rem" }}>
+            <img className=" card-img-top" title="Flag" src={this.state.flag} />
             <div className="card-body">
               <p className="card-text">Country : {this.state.name}</p>
               <p className="card-text">Capital : {this.state.capital}</p>

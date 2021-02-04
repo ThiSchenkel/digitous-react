@@ -8,11 +8,11 @@ class Button extends React.Component {
 
         return (
 
-            <div className="col ">
-                <button className="btn btn-primary" children={this.props.children} onClick={this.props.onClick} />
-
+            <div className="col-4 mx-auto text-center">
+                <button type=" button" className="col col-4 m-4 mx-auto btn btn-primary" children={this.props.children} onClick={this.props.onClick} />
 
             </div>
+
 
         );
     }
