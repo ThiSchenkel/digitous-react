@@ -1,7 +1,6 @@
 import "../App.css";
 import React from "react";
 import Button from "./Button"
-import App from "../App"
 
 
 class Add extends React.Component {
@@ -17,13 +16,11 @@ class Add extends React.Component {
     updateProductName = (event) => {
         const productName = this.state.productName
         this.setState({ productName: event.target.value })
-        console.log(productName)
     }
 
     updatePrice = (event) => {
         const price = this.state.price
         this.setState({ price: event.target.value })
-        console.log(price)
     }
 
     render() {

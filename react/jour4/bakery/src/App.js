@@ -46,21 +46,19 @@ class App extends React.Component {
 
   addItem = (name, price) => {
     const items = this.state.items
-    const newObject = {
-      name: "",
-      price: ""
-    }
-    const inserItems = [...newObject]
-    this.setState({ items: inserItems })
-    console.log(items)
+    const listItems = []
+    const newObject = [{
+      name: this.props.productName.value,
+      price: this.props.price.value
+    }]
+    this.setState({ items: [...listItems, { newObject }] })
   }
-
 
   render() {
     return (
       <div className="container text-center">
         <h1>Bakery</h1>
-        <Button isSelected={this.state.activeTabs === "add"} onClick={this.selectedAdd} pushList={this.state.items}>Add</Button>
+        <Button isSelected={this.state.activeTabs === "add"} onClick={this.selectedAdd} pushList={this.addItem}>Add</Button>
         <Button isSelected={this.state.activeTabs === "list"} onClick={this.selectedList}>List</Button>
         <Button isSelected={this.state.activeTabs === "pay"} onClick={this.selectedPay}>Pay</Button>
         {this.renderContent()}

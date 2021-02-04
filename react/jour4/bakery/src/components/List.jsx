@@ -5,7 +5,13 @@ class List extends React.Component {
 
     render() {
         return (
-            <div>List</div>
+            <div className="container">
+
+                <ul>
+                    {this.props.pushList.map(push => (<li>{this.props.items} {this.props.price}</li>))}
+                </ul>
+
+            </div>
         );
     }
 }
