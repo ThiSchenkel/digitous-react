@@ -16,40 +16,40 @@ class App extends React.Component {
 
   componentDidMount = () => {
     fetch("https://restcountries.eu/rest/v2/name/france")
-      .then(response => response.json())
-      .then(state => {
-        this.setState({ name: state[0].name })
-        this.setState({ capital: state[0].capital })
-        this.setState({ region: state[0].region })
-        this.setState({ population: state[0].population })
-        this.setState({ flag: state[0].flag })
-      })
-    // .then(response => response.blob())
-    // .then(flag => {
-    //   this.setState({ flag: flag[0].flag })
-    // })
-  }
-
-  getCountry = (country) => {
-    fetch("https://restcountries.eu/rest/v2/name/all")
-      .then(response => response.json())
-      .then(country => {
-        country = country.map((country) => {
-          const { callingCodes, name, capital, region, population, flag } = country
-          console.log(callingCodes, name, capital, region, population, flag)
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({
+          name: response[0].name,
+          capital: response[0].capital,
+          region: response[0].region,
+          population: response[0].population,
+          flag: response[0].flag
         })
       })
   }
 
+  getCountry = (country) => {
+    fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({
+          name: response[0].name,
+          capital: response[0].capital,
+          region: response[0].region,
+          population: response[0].population,
+          flag: response[0].flag
+        })
+      })
+  }
 
   render() {
     return (
-      <div className="container">
+      <div className="container" >
         <h1 className="text-center">Country Selector</h1>
         <div className="row mx-auto">
-          <Button onClick={this.getCountry}>France</Button>
-          <Button onClick={this.getCountry}>Brazil</Button>
-          <Button onClick={this.getCountry}>Croatia</Button>
+          <Button onClick={(event) => this.getCountry("france", event)}>France</Button>
+          <Button onClick={(event) => this.getCountry("brazil", event)}>Brazil</Button>
+          <Button onClick={(event) => this.getCountry("croatia", event)}>Croatia</Button>
         </div>
 
         <div className="row ">
