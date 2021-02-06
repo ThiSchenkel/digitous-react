@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
-import Button from "./componants/Button"
+import Button from "./componants/Button";
+import Card from "./componants/Card";
+// import Card from "./componants/Card"
 
 class App extends React.Component {
   constructor(props) {
@@ -42,6 +44,8 @@ class App extends React.Component {
       })
   }
 
+
+
   render() {
     return (
       <div className="container" >
@@ -51,19 +55,7 @@ class App extends React.Component {
           <Button onClick={(event) => this.getCountry("brazil", event)}>Brazil</Button>
           <Button onClick={(event) => this.getCountry("croatia", event)}>Croatia</Button>
         </div>
-
-        <div className="row ">
-          <div className="col-6 mx-auto card" style={{ width: "18rem" }}>
-            <img className=" card-img-top" title="Flag" src={this.state.flag} />
-            <div className="card-body">
-              <p className="card-text">Country : {this.state.name}</p>
-              <p className="card-text">Capital : {this.state.capital}</p>
-              <p className="card-text">Region : {this.state.region}</p>
-              <p className="card-text">Population : {this.state.population}</p>
-
-            </div>
-          </div>
-        </div>
+        <Card country={{ name: this.state.name, capital: this.state.capital, region: this.state.region, population: this.state.population, flag: this.state.flag }} />
       </div>
     );
   }
