@@ -55,17 +55,6 @@ class App extends React.Component {
       return <Pay />
     }
   }
-
-  // addItem = (name, price) => {
-  //   const items = this.state.items
-  //   const listItems = []
-  //   const newObject = [{
-  //     name: this.props.productName.value,
-  //     price: this.props.price.value
-  //   }]
-  //   this.setState({ items: [...listItems, { newObject }] })
-  // }
-
   render() {
     return (
       <div className="container text-center">

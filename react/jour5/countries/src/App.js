@@ -29,7 +29,6 @@ class App extends React.Component {
       })
   }
 
-
   getCountry = (country) => {
     fetch(`https://restcountries.eu/rest/v2/name/${country}`)
       .then((response) => response.json())
@@ -50,8 +49,6 @@ class App extends React.Component {
       searchCountry: val.target.value
     })
   }
-
-
 
   render() {
     return (
