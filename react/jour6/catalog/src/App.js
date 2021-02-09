@@ -112,30 +112,40 @@ const movies = [
 
 class App extends React.Component {
 
+  movieProfile = (state, ownProps) => {
+    const movie = state.movies.find(movie => movie.id === ownProps.match.params.monvieId)
+    this.setState({
+
+    })
+  }
+
   render() {
+
     return (
       <BrowserRouter>
         <div className="container">
           <div className="row text-center">
             <h1>Catalogue de films</h1>
-            {movies.map((movies, index) => {
+            {movies.map((movies, id) => {
               return (
                 <nav>
                   <ul>
-                    <li key={index}><Link to={`/id/${movies.id}`} key={movies.id}>{movies.id}</Link> - <Link to={`/title/${movies.title}`} >{movies.title}</Link> - <Link to={`/image/${movies.image}`}> <img src={movies.image} /></Link></li>
+                    <li key={id}><Link to="/id" >{movies.title}</Link></li>
                   </ul>
                 </nav>
+
               );
             })}
-            <Switch>
-              <Route path="/id" exact component={movies.id} />
-              <Route path="/stars" exact component={movies.stars} />
-            </Switch>
           </div>
         </div>
-      </BrowserRouter >
 
+        <Switch>
+
+          <Route path="/titre/:id" exact componant={() => movies.push(this.props.params.id)} />
+        </Switch>
+      </BrowserRouter >
     )
   }
+
 } export default App;
 
