@@ -16,7 +16,7 @@ class App extends React.Component {
       <BrowserRouter>
 
         <nav class="navbar navbar-light bg-light">
-          <div class="container-fluid">
+          <div class="container">
             <Link to="/">Home</Link>
             <Link to="/weekly">Weekly</Link>
             <Link to="/weekly-battle">Weekly Battle</Link>
