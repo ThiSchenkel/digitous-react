@@ -1,5 +1,11 @@
 import React from "react";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Weekly from "./components/Weekly";
+import WeeklyBattle from "./components/WeeklyBattle";
+import Popular from "./components/Popular";
+import PopularBattle from "./components/PopularBattle";
+import Favorites from "./components/Favorites";
 
 
 
@@ -7,22 +13,17 @@ import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+
+        <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+            <Link to="/">Home</Link>
+
+
+          </div>
+        </nav>
+
+      </BrowserRouter>
     );
   }
 }
