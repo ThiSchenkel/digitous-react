@@ -17,7 +17,8 @@ class PopularBattle extends React.Component {
 
     render() {
         return (
-            <Popular />)
+            <Popular />
+            )
     }
 }
 
