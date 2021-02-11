@@ -3,8 +3,6 @@ import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import Card from "./Card";
 
 
-
-
 class Popular extends React.Component {
     constructor(props) {
         super(props);

@@ -4,7 +4,8 @@ import React from "react";
 class Card extends React.Component {
 
     render() {
-        const { fiche } = this.props
+        const { fiche } = this.props;
+        
         return (
             <div className="d-flex justify-content-center ">
                 <div className="flex-row">
