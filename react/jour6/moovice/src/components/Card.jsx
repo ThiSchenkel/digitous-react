@@ -12,9 +12,9 @@ class Card extends React.Component {
                         <div className="card" style={{ width: "18rem" }}>
                             <img src={`https://image.tmdb.org/t/p/w300/${fiche.poster_path}`} className="card-img-top" alt={`L'affiche : ${fiche.poster_path}`} />
                             <div className="card-body">
-                                <p className="card-text"><h3>Titre : {fiche.title}</h3></p>
+                                <h3 className="card-text">{fiche.title}</h3>
                                 <p className="card-text">Sortie en {fiche.release_date}</p>
-                                <p className="card-text">Descrition :{fiche.overview}</p>
+                                <p className="card-text">{fiche.overview}</p>
                             </div>
                         </div>
                     </div>
