@@ -10,7 +10,7 @@ class PopularBattle extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            movies: [""],
+            movies: [],
             currentBattle: 0
         }
     }

@@ -9,7 +9,7 @@ class Popular extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            movies: [""]
+            movies: []
         }
     }
 
@@ -22,6 +22,7 @@ class Popular extends React.Component {
                     movies: popular.results
                 })
             })
+            .catch((error) => console.error(error));
     }
 
     render() {
