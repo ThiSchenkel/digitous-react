@@ -3,8 +3,6 @@ import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import Card from "./Card";
 
 
-
-
 class Popular extends React.Component {
     constructor(props) {
         super(props);
@@ -27,15 +25,11 @@ class Popular extends React.Component {
 
     render() {
         return (
-
             <div >
-
                 {this.state.movies.map((film, index) => {
                     return (
                         <li key={index} ><Card fiche={film} /></li>)
                 })}
-
-
             </div>);
     }
 }
