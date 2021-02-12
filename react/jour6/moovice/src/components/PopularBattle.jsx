@@ -35,9 +35,6 @@ class PopularBattle extends React.Component {
         localStorage.setItem("favorites", JSON.stringify(this.favoriteId))
     }
 
-
-
-
     render() {
         if (this.state.movies.length === 0) {
             return (<h2>Loading</h2>)
