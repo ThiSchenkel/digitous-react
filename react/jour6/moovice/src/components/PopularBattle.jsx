@@ -37,10 +37,15 @@ class PopularBattle extends React.Component {
 
 
 
+
     render() {
         if (this.state.movies.length === 0) {
             return (<h2>Loading</h2>)
         }
+        // if (this.state.currentBattle.length === this.state.movies.length) {
+        //     return (<h2>Vous avez parcouru tous les films !</h2>)
+        // }
+
         return (
             <div>
                 <div onClick={() => { this.onClick(this.state.movies[this.state.currentBattle].id) }}>
