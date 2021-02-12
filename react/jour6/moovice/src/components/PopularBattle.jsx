@@ -47,14 +47,17 @@ class PopularBattle extends React.Component {
         // }
 
         return (
-            <div>
-                <div onClick={() => { this.onClick(this.state.movies[this.state.currentBattle].id) }}>
-                    <Card fiche={this.state.movies[this.state.currentBattle]} />
-                </div>
-                <div onClick={() => { this.onClick(this.state.movies[this.state.currentBattle + 1].id) }}>
-                    <Card fiche={this.state.movies[this.state.currentBattle + 1]} />
+            <div className="container">
+                <div className="row">
+                    <div className="col-6" onClick={() => { this.onClick(this.state.movies[this.state.currentBattle].id) }}>
+                        <Card fiche={this.state.movies[this.state.currentBattle]} />
+                    </div>
+                    <div className="col-6" onClick={() => { this.onClick(this.state.movies[this.state.currentBattle + 1].id) }}>
+                        <Card fiche={this.state.movies[this.state.currentBattle + 1]} />
+                    </div>
                 </div>
             </div>
+
         );
     }
 }

@@ -25,11 +25,15 @@ class Popular extends React.Component {
 
     render() {
         return (
-            <div >
-                {this.state.movies.map((film, index) => {
-                    return (
-                        <li key={index} ><Card fiche={film} /></li>)
-                })}
+            <div className="container">
+                <div className="row" >
+                    {this.state.movies.map((film, index) => {
+                        return (
+                            <div className="col-sm-3">
+                                <div key={index} ><Card fiche={film} /></div> </div>
+                        )
+                    })}
+                </div>
             </div>);
     }
 }
