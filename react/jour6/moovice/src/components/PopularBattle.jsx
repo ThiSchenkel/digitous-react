@@ -42,9 +42,9 @@ class PopularBattle extends React.Component {
         if (this.state.movies.length === 0) {
             return (<h2>Loading</h2>)
         }
-        // if (this.state.currentBattle.length === this.state.movies.length) {
-        //     return (<h2>Vous avez parcouru tous les films !</h2>)
-        // }
+        if (this.state.currentBattle === this.state.movies.length) {
+            return (<h2>Vous avez parcouru tous les films de la liste !</h2>)
+        }
 
         return (
             <div className="container">
