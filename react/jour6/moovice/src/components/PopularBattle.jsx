@@ -40,7 +40,7 @@ class PopularBattle extends React.Component {
             return (<h2>Loading</h2>)
         }
         if (this.state.currentBattle === this.state.movies.length) {
-            return (<h2>Vous avez parcouru tous les films de la liste !</h2>)
+            return (<div className="jumbotron display-4 text-center" style={{ padding: "50px", color: "red" }}>Vous avez parcouru tous les films de la liste !</div>)
         }
 
         return (
